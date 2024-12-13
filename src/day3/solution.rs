@@ -1,9 +1,9 @@
 use std::{
     error::Error,
     fs::File,
-    io::{self, BufRead, Read},
+    io::{self, Read},
 };
-fn read() -> Result<Vec<u8>, Box<dyn Error>> {
+pub fn read() -> Result<Vec<u8>, Box<dyn Error>> {
     let file = File::open("src/day3/input.txt")?;
     let mut reader = io::BufReader::new(file);
     let mut content = Vec::new();
@@ -13,7 +13,7 @@ fn read() -> Result<Vec<u8>, Box<dyn Error>> {
 pub mod part1 {
     use std::error::Error;
 
-    use crate::day3::solution::read;
+    use super::read;
     use regex::Regex;
     pub fn solve() -> Result<(), Box<dyn Error>> {
         let content = read()?;
