@@ -1,5 +1,21 @@
-mod day1;
+use std::error::Error;
 
-fn main() -> Result<(), std::io::Error> {
-    day1::part2::solve()
+mod day1;
+mod day2;
+mod day3;
+mod day4;
+mod day5;
+
+fn main() -> Result<(), Box<dyn Error>> {
+    // day1::part1::solve()?;
+    // day1::part1::solve()?;
+    // day2::part1::solve()?;
+    // day2::part2::solve()?;
+    // day3::part1::solve()?;
+    // day3::part2::solve()?;
+    // day4::part1::solve()?;
+    // day4::part2::solve()?;
+    // day5::part1::solve()?;
+    day5::part2::solve()?;
+    Ok(())
 }
