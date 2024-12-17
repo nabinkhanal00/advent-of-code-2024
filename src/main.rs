@@ -6,6 +6,7 @@ mod day3;
 mod day4;
 mod day5;
 mod day6;
+mod day7;
 
 fn main() -> Result<(), Box<dyn Error>> {
     // day1::part1::solve()?;
@@ -18,6 +19,8 @@ fn main() -> Result<(), Box<dyn Error>> {
     // day4::part2::solve()?;
     // day5::part1::solve()?;
     // day6::part1::solve()?;
-    day6::part2::solve()?;
+    // day6::part2::solve()?;
+    // day7::part1::solve()?;
+    day7::part2::solve()?;
     Ok(())
 }
