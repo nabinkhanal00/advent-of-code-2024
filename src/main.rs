@@ -8,22 +8,8 @@ mod day5;
 mod day6;
 mod day7;
 mod day8;
+mod day9;
 
 fn main() -> Result<(), Box<dyn Error>> {
-    // day1::part1::solve()?;
-    // day1::part1::solve()?;
-    // day2::part1::solve()?;
-    // day2::part2::solve()?;
-    // day3::part1::solve()?;
-    // day3::part2::solve()?;
-    // day4::part1::solve()?;
-    // day4::part2::solve()?;
-    // day5::part1::solve()?;
-    // day6::part1::solve()?;
-    // day6::part2::solve()?;
-    // day7::part1::solve()?;
-    // day7::part2::solve()?;
-    // day8::part1::solve()?;
-    day8::part2::solve()?;
-    Ok(())
+    day9::part2::solve()
 }
