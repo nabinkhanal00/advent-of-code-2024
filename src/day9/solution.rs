@@ -80,38 +80,54 @@ pub mod part2 {
         } else {
             length - 2
         };
+        let initial_end = end;
         let mut cur_start: i64 = 0;
-        while start <= end {
-            let s = disk_map[start];
-            let s = s.to_digit(10).unwrap() as i64;
-            if start % 2 == 0 {
-                let id = (start / 2) as i64;
-                checksum += id * s * (2 * cur_start + (s - 1)) / 2;
+        let mut moved = vec![false; length];
+        while start < length {
+            if moved[start] {
+                let cs = disk_map[start];
+                let s = cs.to_digit(10).unwrap() as i64;
                 cur_start += s;
                 start += 1;
-            } else {
-                let id = (end / 2) as i64;
-                let e = disk_map[end] as char;
-                let e = e.to_digit(10).unwrap() as i64;
-                if s == e {
+                continue;
+            }
+            while start <= end {
+                let cs = disk_map[start];
+                let s = cs.to_digit(10).unwrap() as i64;
+                if start % 2 == 0 {
+                    let id = (start / 2) as i64;
                     checksum += id * s * (2 * cur_start + (s - 1)) / 2;
+                    disk_map[start] = b'0' as char;
                     cur_start += s;
-                    end = end - 2;
-                    start += 1;
-                } else if s < e {
-                    checksum += id * s * (2 * cur_start + (s - 1)) / 2;
-                    cur_start += s;
-                    start += 1;
-                    disk_map[end] = ((e - s) as u8 + b'0') as char;
+                    break;
                 } else {
-                    checksum += id * e * (2 * cur_start + (e - 1)) / 2;
-                    cur_start += e;
-                    disk_map[start] = ((s - e) as u8 + b'0') as char;
-                    end -= 2;
+                    let id = (end / 2) as i64;
+                    let e = disk_map[end] as char;
+                    let e = e.to_digit(10).unwrap() as i64;
+                    let skip = moved[end] || s < e;
+                    if skip {
+                        end -= 2;
+                    } else if s == e {
+                        checksum += id * s * (2 * cur_start + (s - 1)) / 2;
+                        cur_start += s;
+                        disk_map[start] = b'0' as char;
+                        moved[end] = true;
+                        break;
+                    } else {
+                        checksum += id * e * (2 * cur_start + (e - 1)) / 2;
+                        cur_start += e;
+                        disk_map[start] = ((s - e) as u8 + b'0') as char;
+                        // println!("Adding {}", s - e);
+                        moved[end] = true;
+                        end -= 2;
+                    }
                 }
             }
+            cur_start += disk_map[start].to_digit(10).unwrap() as i64;
+            start += 1;
+            end = initial_end;
         }
-        print!("The checksum is {checksum}");
+        println!("\nThe checksum is {checksum}");
         Ok(())
     }
 }
