@@ -79,10 +79,8 @@ pub mod part1 {
 }
 
 pub mod part2 {
-    use super::part1::path;
     use super::read;
     use std::{
-        cmp::min_by,
         collections::{BinaryHeap, HashMap, HashSet, VecDeque},
         error::Error,
     };
