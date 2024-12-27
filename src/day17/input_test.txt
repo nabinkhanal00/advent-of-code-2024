@@ -1,0 +1,36 @@
+Register A: 30878003
+Register B: 0
+Register C: 0
+
+Program:
+2,4,
+1,2,
+7,5,
+0,3,
+4,7,
+1,7,
+5,5,
+3,0
+
+
+BST(Combo) -> B = Combo % 8
+BXL(Literal) -> B = B ^ Literal
+CDV(Combo) -> C = A / pow(2, Combo)
+ADV(Combo) -> A = A / pow(2, Combo)
+BXC(_) -> B = B ^ C
+BXL(Literal) -> B = B ^ Literal
+OUT(Combo) -> Output = Combo % 8
+
+B = A % 8
+B = B ^ 2
+C = A / pow(2,B)
+B = B ^ C
+B = B ^ 7
+Output(B%8)
+A = A / pow(2,3)
+JNZ 0
+
+000 001 010 011 100 101 110 111
+010 010 010 010 010 010 010 010
+
+010 011 000 001 110 111 100 101
