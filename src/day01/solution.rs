@@ -20,7 +20,7 @@ fn read() -> Result<(Vec<u64>, Vec<u64>), std::io::Error> {
     Ok((firsts, seconds))
 }
 pub mod part1 {
-    use crate::day1::solution::read;
+    use super::read;
 
     pub fn solve() -> Result<(), std::io::Error> {
         let mut sum: u64 = 0;
@@ -36,7 +36,7 @@ pub mod part1 {
 }
 
 pub mod part2 {
-    use crate::day1::solution::read;
+    use super::read;
     pub fn solve() -> Result<(), std::io::Error> {
         let (mut firsts, mut seconds) = read()?;
 
