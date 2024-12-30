@@ -4,7 +4,7 @@ use std::{
     io::{self, Read},
 };
 pub fn read() -> Result<Vec<u8>, Box<dyn Error>> {
-    let file = File::open("src/day3/input.txt")?;
+    let file = File::open("src/day03/input.txt")?;
     let mut reader = io::BufReader::new(file);
     let mut content = Vec::new();
     reader.read_to_end(&mut content)?;

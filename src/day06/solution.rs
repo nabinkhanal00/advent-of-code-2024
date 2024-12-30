@@ -4,7 +4,7 @@ use std::{
     io::{self, BufRead},
 };
 pub fn read() -> Result<(Vec<String>, (i64, i64)), Box<dyn Error>> {
-    let file = File::open("src/day6/input.txt")?;
+    let file = File::open("src/day06/input.txt")?;
     let reader = io::BufReader::new(file);
     let mut content = Vec::new();
     let mut x: i64 = -1;

@@ -3,7 +3,7 @@ use std::{
     io::{self, BufRead},
 };
 fn read() -> Result<(Vec<u64>, Vec<u64>), std::io::Error> {
-    let file = File::open("src/day1/input.txt")?;
+    let file = File::open("src/day01/input.txt")?;
     let reader = io::BufReader::new(file);
     let mut firsts = Vec::new();
     let mut seconds = Vec::new();

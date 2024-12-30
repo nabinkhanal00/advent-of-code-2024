@@ -4,7 +4,7 @@ use std::{
     io::{self, BufRead, BufReader},
 };
 pub fn read() -> Result<String, Box<dyn Error>> {
-    let file = File::open("src/day9/input.txt")?;
+    let file = File::open("src/day09/input.txt")?;
     let mut reader = io::BufReader::new(file);
     let mut disk_map = String::new();
     reader.read_line(&mut disk_map)?;

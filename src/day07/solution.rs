@@ -4,7 +4,7 @@ use std::{
     io::{self, BufRead, BufReader},
 };
 pub fn read() -> Result<BufReader<File>, Box<dyn Error>> {
-    let file = File::open("src/day7/input.txt")?;
+    let file = File::open("src/day07/input.txt")?;
     let reader = io::BufReader::new(file);
 
     Ok(reader)
