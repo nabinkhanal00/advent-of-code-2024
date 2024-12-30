@@ -35,7 +35,7 @@ pub mod part1 {
 }
 
 pub mod part2 {
-    use crate::day3::solution::read;
+    use super::read;
     use regex::{Error, Regex};
 
     pub fn solve() -> Result<(), Box<dyn std::error::Error>> {
