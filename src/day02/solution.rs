@@ -22,7 +22,7 @@ fn read() -> Result<Vec<Vec<i64>>, Box<dyn Error>> {
 pub mod part1 {
     use std::error::Error;
 
-    use crate::day2::solution::read;
+    use super::read;
     fn check_increasing(report: Vec<i64>) -> bool {
         for i in 1..report.len() {
             let diff = report[i] - report[i - 1];
@@ -72,7 +72,7 @@ pub mod part1 {
 }
 
 pub mod part2 {
-    use crate::day2::solution::read;
+    use super::read;
     use std::error::Error;
 
     fn is_report_safe(report: Vec<i64>) -> bool {
